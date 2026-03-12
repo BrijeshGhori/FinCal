@@ -90,20 +90,6 @@ export default function Results({ results }) {
                 </motion.div>
             )}
 
-            {/* Educational Insights */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="mt-2 text-sm text-slate-500 flex flex-wrap gap-4 items-center justify-center bg-slate-100 p-4 rounded-2xl h-fit flex-none w-full"
-            >
-                <span className="bg-white px-3 py-1.5 rounded-full shadow-sm text-xs font-medium border border-slate-200">
-                    💡 Starting earlier reduces the SIP required!
-                </span>
-                <span className="bg-white px-3 py-1.5 rounded-full shadow-sm text-xs font-medium border border-slate-200">
-                    📈 Inflation increases the future cost of your goals.
-                </span>
-            </motion.div>
         </div>
     );
 }
