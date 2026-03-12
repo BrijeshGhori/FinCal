@@ -221,39 +221,43 @@ export default function Dashboard() {
                                         </div>
                                     </motion.header>
 
-                                    {/* Side-by-Side View */}
-                                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                                        <div className="w-full lg:col-span-4">
+                                    {/* Stacked View Container */}
+                                    <div className="flex flex-col gap-8 w-full mt-4">
+                                        <div className="w-full">
+                                            <GrowthChart data={results?.chartData} />
+                                        </div>
+
+                                        <div className="w-full mt-2">
                                             <Results results={results} />
                                         </div>
-                                        <div className="w-full lg:col-span-8 flex flex-col gap-6">
-                                            <GrowthChart data={results?.chartData} />
 
-                                            {/* Bonus Feature: Delaying Investment Comparison */}
-                                            {results?.delayedSip > results?.sip && (
+                                        {/* Bonus Feature: Delaying Investment Comparison */}
+                                        {results?.delayedSip > results?.sip && (
+                                            <div className="w-full">
                                                 <motion.div
                                                     initial={{ opacity: 0, scale: 0.95 }}
                                                     animate={{ opacity: 1, scale: 1 }}
-                                                    whileHover={{ scale: 1.02, backgroundColor: "#fff5f5" }}
+                                                    whileHover={{ scale: 1.02 }}
                                                     transition={{ delay: 0.3, type: "spring", stiffness: 300 }}
-                                                    className="bg-gradient-to-r from-orange-50 to-red-50 rounded-3xl p-6 border border-orange-100 shadow-sm cursor-default hover:shadow-md transition-shadow"
+                                                    className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/50 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] cursor-default transition-all group relative overflow-hidden"
                                                 >
-                                                    <div className="flex gap-4">
-                                                        <div className="hidden sm:flex bg-orange-100/50 dark:bg-orange-900/30 p-4 rounded-full items-center justify-center text-orange-600 h-16 w-16 shadow-inner">
+                                                    <div className="absolute top-0 right-0 w-64 h-64 bg-orange-400/10 dark:bg-orange-500/10 rounded-full blur-[80px] -z-10 pointer-events-none group-hover:bg-orange-400/20 transition-colors duration-700" />
+                                                    <div className="flex gap-4 relative z-10">
+                                                        <div className="hidden sm:flex bg-gradient-to-br from-orange-100 to-red-50 dark:from-orange-500/20 dark:to-red-500/10 p-4 rounded-2xl items-center justify-center text-orange-600 dark:text-orange-400 h-16 w-16 shadow-inner border border-orange-200/50 dark:border-orange-500/20">
                                                             <Clock size={28} />
                                                         </div>
                                                         <div className="flex flex-col flex-1">
-                                                            <h4 className="flex items-center gap-2 font-bold text-slate-800 dark:text-slate-100 text-lg sm:text-xl">
+                                                            <h4 className="flex items-center gap-2 font-extrabold text-slate-800 dark:text-slate-100 text-lg sm:text-xl tracking-tight">
                                                                 The Cost of Delay <AlertCircle size={18} className="text-orange-500" />
                                                             </h4>
-                                                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base mt-2">
-                                                                If you wait <strong>{results.delayedYears} years</strong> before investing, your required monthly SIP to hit this goal jumps to <strong className="text-red-600 dark:text-red-400 text-lg tabular-nums">{formatCurrency(results.delayedSip)}</strong>.
+                                                            <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base mt-2">
+                                                                If you wait <strong className="text-slate-800 dark:text-slate-100">{results.delayedYears} years</strong> before investing, your required monthly SIP to hit this goal jumps to <strong className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500 dark:from-orange-400 dark:to-red-400 text-lg tabular-nums font-black">{formatCurrency(results.delayedSip)}</strong>.
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </motion.div>
-                                            )}
-                                        </div>
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Advanced Settings Revealer */}
