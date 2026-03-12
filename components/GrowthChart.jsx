@@ -6,11 +6,11 @@ const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
         const data = payload[0].payload;
         return (
-            <div className="bg-white/95 backdrop-blur-xl p-4 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-100/50">
+            <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-4 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-100/50 dark:border-slate-700/50 transition-colors">
                 <span className="text-xs uppercase font-bold tracking-wider" style={{ color: data.fill }}>
                     {data.name}
                 </span>
-                <span className="block font-bold text-slate-900 tabular-nums text-2xl mt-1">
+                <span className="block font-bold text-slate-900 dark:text-white tabular-nums text-2xl mt-1">
                     {formatCurrencySimple(data.value)}
                 </span>
             </div>
@@ -42,21 +42,21 @@ export default function GrowthChart({ data }) {
     ];
 
     return (
-        <div className="w-full h-[450px] mt-2 bg-white/50 rounded-3xl p-4 sm:p-6 backdrop-blur-md shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 flex flex-col">
+        <div className="w-full h-[450px] mt-2 bg-white/50 dark:bg-slate-900/50 rounded-3xl p-4 sm:p-6 backdrop-blur-md shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex flex-col transition-colors">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-                <h3 className="font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                <h3 className="font-bold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
                     <span className="text-xl">🚀</span> Time Machine
                 </h3>
 
                 {/* Time Travel Selector */}
-                <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-2xl shadow-sm border border-slate-100 w-full sm:w-auto">
-                    <label htmlFor="year-select" className="text-sm font-semibold text-slate-500 whitespace-nowrap">Explore Year:</label>
+                <div className="flex items-center gap-3 bg-white dark:bg-slate-800 px-4 py-2 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 w-full sm:w-auto transition-colors">
+                    <label htmlFor="year-select" className="text-sm font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Explore Year:</label>
                     <div className="relative">
                         <select
                             id="year-select"
                             value={safeIndex}
                             onChange={(e) => setSelectedYearIndex(parseInt(e.target.value))}
-                            className="appearance-none w-full sm:w-32 bg-slate-100/80 hover:bg-slate-200/80 border border-slate-200/60 text-emerald-700 text-sm font-bold rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block px-4 py-2 pr-8 outline-none cursor-pointer transition-colors"
+                            className="appearance-none w-full sm:w-32 bg-slate-100/80 hover:bg-slate-200/80 dark:bg-slate-900/80 dark:hover:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 text-emerald-700 dark:text-emerald-400 text-sm font-bold rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 block px-4 py-2 pr-8 outline-none cursor-pointer transition-colors"
                         >
                             {data.map((_, idx) => (
                                 <option key={idx} value={idx}>
