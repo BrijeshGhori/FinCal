@@ -1,18 +1,20 @@
+
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ---- BRAND TOKENS (FinCal Innovation Hackathon) ---- */
 @theme {
-    --color-brand-blue: #0f172a;
-    --color-brand-green: #10b981;
-    --color-brand-light-green: #d1fae5;
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --color-brand-blue: #224c87;
+    --color-brand-red:  #da3832;
+    --color-brand-grey: #919090;
+    --font-sans: 'Montserrat', Arial, Verdana, ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
     font-family: var(--font-sans);
 }
 
-/* Custom styling for slider */
+/* Custom styling for range sliders - brand blue thumb */
 input[type=range] {
     -webkit-appearance: none;
     appearance: none;
@@ -26,10 +28,10 @@ input[type=range]::-webkit-slider-thumb {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: var(--color-brand-green);
+    background: #224c87;
     cursor: pointer;
     margin-top: -8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(34,76,135,0.3);
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -41,5 +43,14 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 input[type=range]:focus {
-    outline: none;
+    outline: 2px solid #224c87;
+    outline-offset: 2px;
+}
+
+/* Focus ring accessibility */
+button:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 2px solid #224c87;
+    outline-offset: 2px;
 }

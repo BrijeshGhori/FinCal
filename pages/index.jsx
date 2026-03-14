@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { ArrowRight, BarChart2, TrendingUp, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BarChart2, ShieldCheck, Calculator } from 'lucide-react';
 
 export default function LandingPage() {
     const router = useRouter();
@@ -9,125 +9,110 @@ export default function LandingPage() {
     return (
         <>
             <Head>
-                <title>FinCal | Plan Your Financial Future</title>
+                <title>GoalFi | Goal-Based Financial Planner</title>
+                <meta name="description" content="Interactive goal-based SIP calculator. Pure educational financial planning." />
             </Head>
 
-            <div className="min-h-screen bg-[#0f172a] text-slate-50 overflow-hidden relative font-sans selection:bg-emerald-500/30">
+            <div className="min-h-screen bg-white text-slate-900 overflow-hidden relative font-sans">
 
-                {/* Background Gradients & Orbs */}
+                {/* Subtle brand-blue background accent */}
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-500/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-10000" />
-                    <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-sky-500/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[15000ms]" />
-
-                    {/* subtle grid overlay */}
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 mix-blend-overlay"></div>
+                    <div className="absolute top-[-5%] right-[-5%] w-[40vw] h-[40vw] rounded-full blur-[140px]" style={{ background: 'rgba(34,76,135,0.06)' }} />
+                    <div className="absolute bottom-[-5%] left-[-5%] w-[40vw] h-[40vw] rounded-full blur-[140px]" style={{ background: 'rgba(34,76,135,0.04)' }} />
                 </div>
 
                 {/* Navbar */}
-                <nav className="relative z-20 flex items-center justify-between px-6 sm:px-12 py-6 max-w-7xl mx-auto">
+                <nav className="relative z-20 flex items-center justify-between px-6 sm:px-12 py-6 max-w-7xl mx-auto border-b border-slate-100" aria-label="Main navigation">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-2 font-bold text-2xl tracking-tighter"
+                        className="flex items-center gap-2.5 font-bold text-2xl tracking-tight"
+                        style={{ color: '#224c87' }}
                     >
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-400 to-sky-500 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: '#224c87' }}>
                             <div className="w-3 h-3 bg-white rounded-full" />
                         </div>
-                        FinCal.<span className="text-emerald-400">io</span>
+                        GoalFi
                     </motion.div>
                     <motion.button
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
                         onClick={() => router.push('/dashboard')}
-                        className="bg-white/10 hover:bg-white/20 border border-white/10 backdrop-blur-md px-6 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2"
+                        className="border px-6 py-2.5 rounded-lg text-sm font-semibold transition-all"
+                        style={{ borderColor: '#224c87', color: '#224c87' }}
                     >
-                        Dashboard
-                        <ArrowRight size={16} />
+                        Launch Planner
                     </motion.button>
                 </nav>
 
                 {/* Hero Section */}
                 <main className="relative z-10 flex flex-col items-center justify-center text-center px-4 pt-20 pb-32 max-w-5xl mx-auto">
 
-                    {/* Pill Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="mb-8 inline-flex items-center gap-2 px-5 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium tracking-wide shadow-[0_0_20px_rgba(16,185,129,0.15)] backdrop-blur-xl"
-                    >
-                        <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                        </span>
-                        FinCal Innovation Hackathon 2026
-                    </motion.div>
+
 
                     {/* Heading */}
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-6xl sm:text-8xl font-extrabold tracking-[-0.04em] leading-[1.1] mb-8"
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 text-slate-900"
                     >
-                        Build wealth with <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">mathematical clarity.</span>
+                        Plan your financial goals<br />
+                        <span style={{ color: '#224c87' }}>with mathematical clarity.</span>
                     </motion.h1>
 
                     {/* Subheading */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-slate-400 text-lg sm:text-2xl font-medium max-w-2xl mb-12 leading-relaxed"
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="text-slate-500 text-lg sm:text-xl max-w-2xl mb-12 leading-relaxed"
                     >
-                        Interactive goal-based calculators for your financial future. No brand biases, just pure 100% educational insights.
+                        Interactive, goal-based SIP calculators accounting for inflation and compounded returns.
                     </motion.p>
 
                     {/* CTA Button */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
                     >
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
                             onClick={() => router.push('/dashboard')}
-                            className="group relative bg-white text-slate-900 px-10 py-5 rounded-[2.5rem] text-lg font-bold tracking-tight overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+                            className="text-white px-10 py-4 rounded-xl text-lg font-bold tracking-tight shadow-md flex items-center gap-3"
+                            style={{ background: '#224c87' }}
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-100 to-sky-100 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 pointer-events-none" />
-                            <span className="relative flex items-center gap-3">
-                                Start Planning Free
-                                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-                            </span>
+                            Start Planning
+                            <ArrowRight size={20} />
                         </motion.button>
                     </motion.div>
 
-                    {/* Floating Feature Cards */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-24 max-w-4xl w-full">
+                    {/* Feature Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-24 max-w-4xl w-full" role="list">
                         {[
-                            { icon: TrendingUp, title: "Smart SIP Engine", desc: "Calculate exact monthly needed inclusive of inflation." },
-                            { icon: BarChart2, title: "Growth Trajectory", desc: "Interactive charts showing portfolio growth vs actual goal cost." },
-                            { icon: ShieldCheck, title: "Unbiased Education", desc: "No mutual fund promotion. Strictly for planning." }
+                            { icon: Calculator, title: "SIP Calculator", desc: "Calculate the exact monthly investment needed, adjusted for inflation, to reach your goal." },
+                            { icon: BarChart2, title: "Projection Charts", desc: "Visualise your invested capital versus compounded returns year-by-year." },
+                            { icon: ShieldCheck, title: "Unbiased Insights", desc: "No mutual fund promotion. Purely educational financial planning tool." }
                         ].map((feat, idx) => (
                             <motion.div
                                 key={feat.title}
+                                role="listitem"
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.4 + (idx * 0.1) }}
-                                whileHover={{ y: -5, scale: 1.02, rotate: 1 }}
-                                drag
-                                dragConstraints={{ top: -20, bottom: 20, left: -20, right: 20 }}
-                                className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 text-left cursor-grab active:cursor-grabbing hover:bg-white/10 transition-colors"
+                                transition={{ duration: 0.5, delay: 0.4 + (idx * 0.1) }}
+                                whileHover={{ y: -4 }}
+                                className="bg-white border rounded-2xl p-6 text-left shadow-sm hover:shadow-md transition-shadow"
+                                style={{ borderColor: '#e2e8f0' }}
                             >
-                                <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mb-4">
-                                    <feat.icon size={24} />
+                                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(34,76,135,0.08)' }}>
+                                    <feat.icon size={22} style={{ color: '#224c87' }} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2 text-white">{feat.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{feat.desc}</p>
+                                <h3 className="text-lg font-bold mb-2 text-slate-800">{feat.title}</h3>
+                                <p className="text-slate-500 text-sm leading-relaxed">{feat.desc}</p>
                             </motion.div>
                         ))}
                     </div>
