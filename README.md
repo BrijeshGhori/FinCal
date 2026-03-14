@@ -186,20 +186,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 npm run build
 npm start
 ```
-
----
-
-## Judging Criteria Checklist
-
-| Criterion | Weight | Status | Notes |
-|---|---|---|---|
-| **Financial Logic Accuracy** | 25% | ✅ | Standard SIP FV formula with beginning-of-period compounding, inflation-adjusted target, cost-of-delay calculation |
-| **Compliance Adherence** | 20% | ✅ | Exact brand colours `#224c87`, `#da3832`, `#919090`; Montserrat font; no forbidden visual metaphors |
-| **Accessibility Compliance** | 15% | ✅ | ARIA labels, roles, live regions, focus rings, semantic HTML, keyboard navigation |
-| **UX Clarity** | 15% | ✅ | 3-step flow, clear professional terminology, responsive layout, Cost of Delay insight |
-| **Technical Quality** | 15% | ✅ | Clean component separation, live recalculation via `useEffect`, edge case handling (r=0) |
-| **Responsiveness** | 10% | ✅ | Mobile-first, 50/50 chart split on desktop, full-width stacking on mobile/tablet |
-
 ---
 
 *GoalFi — Clarity in every rupee.*
